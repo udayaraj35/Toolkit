@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Digital Toolkit Pro - All-in-One Solution</title>
+    <meta name="description" content="Professional suite of PDF, AI, and image tools with 3D interface. Merge, convert, compress, and enhance documents with AI-powered features.">
+    <meta name="keywords" content="PDF tools, AI image processing, document conversion, 3D interface, online toolkit">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="3D Digital Toolkit Pro - Complete Document Solution">
+    <meta property="og:description" content="Advanced 3D interface with 40+ professional tools for document and image processing">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_ID" crossorigin="anonymous"></script>
+
+    <style>
+        :root {
+            --primary-color: #2A5CAA;
+            --accent-color: #27ae60;
+            --dark-bg: #1a1a1a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background: var(--dark-bg);
+            color: white;
+            perspective: 1000px;
+            overflow-x: hidden;
+        }
+
+        .container-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            padding: 20px;
+        }
+
+        .tool-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transform: translateZ(20px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateZ(40px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .ad-panel {
+            background: rgba(255,255,255,0.05);
+            padding: 1rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            transform: translateZ(30px);
+        }
+
+        .compression-interface {
+            position: relative;
+            z-index: 2;
+            transform: translateZ(50px);
+        }
+
+        .parallax-bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            transform: translateZ(-500px) scale(2);
+            background: linear-gradient(45deg, #2A5CAA 0%, #1a4475 100%);
+            z-index: -1;
+        }
+
+        /* Add more 3D styles here */
+    </style>
+</head>
+<body>
+    <div class="parallax-bg"></div>
+    
+    <!-- Header Ad -->
+    <div class="ad-panel">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-YOUR_AD_ID"
+             data-ad-slot="728x90"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+    </div>
+
+    <main class="container-3d">
+        <h1 class="tool-card">3D Digital Toolkit Pro</h1>
+        
+        <!-- PDF Tools Section -->
+        <section class="tool-grid">
+            <div class="tool-card">
+                <h3>PDF Merger</h3>
+                <p>Combine multiple PDFs into one document</p>
+                <input type="file" multiple accept=".pdf">
+                <button class="cta-3d">Merge Now</button>
+            </div>
+            <!-- Add 14 more PDF tool cards -->
+        </section>
+
+        <!-- AI Tools Section -->
+        <section class="tool-grid">
+            <div class="tool-card">
+                <h3>AI Background Remover</h3>
+                <div class="preview-box"></div>
+                <input type="file" accept="image/*">
+                <div class="ai-controls">
+                    <input type="range" class="ai-slider">
+                </div>
+            </div>
+            <!-- Add 10 more AI tool cards -->
+        </section>
+
+        <!-- Image Compression Tool -->
+        <section class="compression-interface tool-card">
+            <h2>Smart Image Compressor</h2>
+            <div class="preview-3d">
+                <div class="image-original"></div>
+                <div class="image-compressed"></div>
+            </div>
+            <input type="file" accept="image/*">
+            <input type="range" min="1" max="100" value="80">
+            <button class="cta-3d">Compress Now</button>
+        </section>
+
+        <!-- More tool sections -->
+    </main>
+
+    <!-- Footer Ad -->
+    <div class="ad-panel">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-YOUR_AD_ID"
+             data-ad-slot="728x90"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+    </div>
+
+    <script>
+        // 3D Parallax Effect
+        document.addEventListener('mousemove', (e) => {
+            const x = (window.innerWidth/2 - e.pageX)/30;
+            const y = (window.innerHeight/2 - e.pageY)/30;
+            document.querySelector('.container-3d').style.transform = 
+                `rotateY(${x}deg) rotateX(${y}deg)`;
+        });
+
+        // Image Compression Logic
+        class ImageCompressor {
+            constructor() {
+                this.canvas = document.createElement('canvas');
+                this.ctx = this.canvas.getContext('2d');
+            }
+            
+            compress(file, quality) {
+                return new Promise((resolve) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        this.canvas.width = img.width;
+                        this.canvas.height = img.height;
+                        this.ctx.drawImage(img, 0, 0);
+                        this.canvas.toBlob(resolve, file.type, quality/100);
+                    };
+                    img.src = URL.createObjectURL(file);
+                });
+            }
+        }
+
+        // Initialize AdSense
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+</html>
